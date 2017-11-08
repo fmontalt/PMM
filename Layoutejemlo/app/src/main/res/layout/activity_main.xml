@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.example.fraleo.layoutejemlo.MainActivity"
+    android:weightSum="1">
+
+    <AnalogClock
+        android:id="@+id/reloj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:id="@+id/checkPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ChekBox de prueba" />
+
+    <Button
+        android:id="@+id/botonPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Boton Prueba" />
+
+    <TextView
+        android:id="@+id/etiquetaPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etiqueta de prueba." />
+
+    <Button
+        android:id="@+id/cmdCerrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar" />
+
+    <Button
+        android:id="@+id/cmdLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Layout Lineal" />
+
+    <Button
+        android:id="@+id/cmdTabla"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout en Tabla"/>
+    <Button
+        android:id="@+id/cmdRelativo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout Relativo"/>
+
+    <Button
+        android:id="@+id/cmdGrid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout en Grid"/>
+</LinearLayout>
+
+
