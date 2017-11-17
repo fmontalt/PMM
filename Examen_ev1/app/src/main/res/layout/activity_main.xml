@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="come.example.fraleo.examen_ev1.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/imageView1"
+        android:text="¡¡pizzeria online!!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="189dp"
+        android:layout_height="97dp"
+        android:layout_gravity="right"
+        android:src="@drawable/logopizza"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/imageView1"
+        android:layout_toStartOf="@+id/imageView1" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/radioGroup"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+        <RadioButton
+            android:id="@+id/local"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="En local"
+            android:layout_below="@+id/spinner"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <RadioButton
+            android:id="@+id/domicilio"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Envio Domicilio"
+            android:layout_below="@+id/local"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RadioGroup>
+
+    <CheckBox android:id="@+id/tamanyo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamaño grande"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox android:id="@+id/ingrediente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Un ingrediente extra"
+        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox android:id="@+id/queso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir extra de queso"
+        android:layout_below="@+id/ingrediente"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/unidades"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:hint="Numero de unidades"
+        android:digits="0123456789"
+        android:layout_below="@+id/queso"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/boton"
+        android:text="Calcular"
+        android:layout_marginBottom="61dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

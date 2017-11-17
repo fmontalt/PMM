@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="come.example.fraleo.examen_ev1.Recibo_pizza">
+
+<TextView
+    android:id="@+id/info_pizza"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp"/>
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/info_precio"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp"/>
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/info_extra"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/info_unidades"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/info_envio"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/info_coste_final"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp" />
+
+<CheckBox
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:id="@+id/checkbox2"
+    android:text="Mostrar hora del pedido"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp" />
+
+<DigitalClock
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/reloj"
+    android:visibility="invisible"
+    />
+
+
+</LinearLayout>
