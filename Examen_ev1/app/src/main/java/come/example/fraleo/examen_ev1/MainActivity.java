@@ -106,14 +106,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void cargaSpinner(){
         lista = new ArrayList <Pizzas>();
-        lista.add(new Pizzas("Normal", "Jamon york, Queso", 15));
-        lista.add(new Pizzas("Barbacoa", "Cebolla, Carne picada...", 30));
-        lista.add(new Pizzas("Margarita", "Queso, Salami", 20));
-        lista.add(new Pizzas("Vegana", "Tofu, Cosas veganas", 10));
-
-
-        /// ArrayAdapter<ZonasEnvio> adapter = new ArrayAdapter<ZonasEnvio>(this,
-        ///      android.R.layout.simple_spinner_dropdown_item,lista);
+        lista.add(new Pizzas("Normal", "Jamon york, Queso", 15,R.drawable.pizza1));
+        lista.add(new Pizzas("Barbacoa", "Cebolla, Carne picada...", 30,R.drawable.pizza2));
+        lista.add(new Pizzas("Margarita", "Queso, Salami", 20,R.drawable.pizza3));
+        lista.add(new Pizzas("Vegana", "Tofu, Cosas veganas", 10,R.drawable.pizza4));
 
 
         AdaptadorPizzas adaptador = new AdaptadorPizzas(this, lista);

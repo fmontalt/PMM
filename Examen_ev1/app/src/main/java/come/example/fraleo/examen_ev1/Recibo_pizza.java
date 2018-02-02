@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DigitalClock;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Recibo_pizza extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class Recibo_pizza extends AppCompatActivity {
         final TextView info_envio = (TextView) findViewById(R.id.info_envio);
         final TextView info_coste_final = (TextView) findViewById(R.id.info_coste_final);
         final CheckBox checkbox2 = (CheckBox) findViewById(R.id.checkbox2);
+        final ImageView imagen = (ImageView) findViewById(R.id.imagen);
         final DigitalClock clock = (DigitalClock) findViewById(R.id.reloj);
 
         Intent intent = getIntent();
@@ -51,6 +53,7 @@ public class Recibo_pizza extends AppCompatActivity {
         info_extra.setText("Extra: "+String.valueOf(suma_extra)+"€");
         info_unidades.setText("Unidades: "+unidades);
         info_envio.setText("Envio: "+envio);
+        imagen.setImageResource(info_res.getImagen());
         info_coste_final.setText("Coste final: "+(((precio_aux+suma_extra)*unidades)*extra_envio)+" €");
 
         checkbox2.setOnClickListener(new View.OnClickListener()

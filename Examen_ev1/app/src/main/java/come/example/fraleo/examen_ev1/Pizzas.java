@@ -17,14 +17,15 @@ public class Pizzas  implements Serializable {
     String nombre;
     String descripcion;
     int precio;
-   // int imagen;
+    int imagen;
 
     public Pizzas(){}
 
-    public Pizzas(String descripcion, String nombre, int precio){
+    public Pizzas(String descripcion, String nombre, int precio, int imagen){
         setDescripcion(descripcion);
         setNombre(nombre);
         setPrecio(precio);
+        setImagen(imagen);
     }
 
 
@@ -41,9 +42,8 @@ public class Pizzas  implements Serializable {
         this.precio=precio;
     }
 
-   // public void setImagen(int imagen){
-        //this.imagen=imagen;
-    //}
+    public void setImagen(int imagen) { this.imagen=imagen; }
+
 
 
     public String toString(){
@@ -64,9 +64,9 @@ public class Pizzas  implements Serializable {
         return precio;
     }
 
-    //public int getImagen(){
-       // return imagen;
-    //}
+    public int getImagen(){
+       return imagen;
+    }
 
 
 }

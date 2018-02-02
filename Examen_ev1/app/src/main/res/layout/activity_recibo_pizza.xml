@@ -51,6 +51,12 @@ tools:context="come.example.fraleo.examen_ev1.Recibo_pizza">
     tools:layout_editor_absoluteY="8dp"
     tools:layout_editor_absoluteX="8dp" />
 
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/imagen"
+    android:src="@drawable/logopizza"/>
+
 <CheckBox
     android:layout_width="match_parent"
     android:layout_height="20dp"

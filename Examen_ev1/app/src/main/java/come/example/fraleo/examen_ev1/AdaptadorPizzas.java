@@ -45,8 +45,8 @@ public class AdaptadorPizzas extends ArrayAdapter {
         TextView precio = (TextView) item.findViewById(R.id.precio);
         precio.setText(String.valueOf(lista.get(position).getPrecio()));
 
-        //ImageView imagen = (ImageView) item.findViewById(R.id.imageView);
-        //imagen.setImageDrawable(lista.get(position).getImagen());
+        ImageView imagen = (ImageView) item.findViewById(R.id.imagen);
+        imagen.setImageResource(lista.get(position).getImagen());
         return(item);
     }
 }
