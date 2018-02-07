@@ -4,18 +4,14 @@ package come.example.fraleo.proyectofinal;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.FileNotFoundException;
 
 public class LoginSuccessActivity extends AppCompatActivity {
 
@@ -27,14 +23,12 @@ public class LoginSuccessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_success);
 
         //To hide AppBar for fullscreen.
-        ActionBar ab = getSupportActionBar();
-        ab.hide();
+
 
         TextView txtname = (TextView) findViewById(R.id.txt_success_name);
         TextView txtemail = (TextView) findViewById(R.id.txt_success_email);
-        Button _btnlogout = (Button) findViewById(R.id.btn_logout);
+        Button btnpedido = (Button) findViewById(R.id.btn_pedido);
 
-        dpImage = (ImageView) findViewById(R.id.imgclick);
 
         Intent intent = getIntent();
 
@@ -43,102 +37,63 @@ public class LoginSuccessActivity extends AppCompatActivity {
         txtname.setText("Bienvenido, " +loginName);
         txtemail.setText(loginEmail);
 
-        _btnlogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(LoginSuccessActivity.this);
-                builder.setTitle("Información");
-                builder.setMessage("¿Quieres salir al menu?");
-
-                builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        dialogInterface.dismiss();
-
-                    }
-                });
-
-                builder.setNegativeButton("Sí", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        Intent intent = new Intent(LoginSuccessActivity.this,MainActivity.class);
-                        startActivity(intent);
-
-                        finish();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-
-        //=========Section For Changing Display Image When Click=========
-
-        dpImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
-            }
-        });
 
     }
 
-    //this Method call when user pick an image from ImagePicker. e.g gallery
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
-        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
-        switch(requestCode) {
-            case SELECT_PHOTO:
-                if(resultCode == RESULT_OK){
-                    Uri selectedImage = imageReturnedIntent.getData();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-                    Bitmap yourSelectedImage = null;
-                    try {
-                        //decodeUri() Method Defined Below
-                        yourSelectedImage = decodeUri(selectedImage);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    dpImage.setImageBitmap(yourSelectedImage);
+        int id = item.getItemId();
+
+        if (id == R.id.logout) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(LoginSuccessActivity.this);
+            builder.setTitle("Información");
+            builder.setMessage("¿Quieres salir al menu?");
+
+            builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    dialogInterface.dismiss();
+
                 }
-        }
-    }
+            });
 
-    //decodeUri() Method for decoding image for Out of Memory Exception
-    private Bitmap decodeUri(Uri selectedImage) throws FileNotFoundException {
+            builder.setNegativeButton("Sí", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
 
-        // Decode image size
-        BitmapFactory.Options o = new BitmapFactory.Options();
-        o.inJustDecodeBounds = true;
-        BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage), null, o);
+                    Intent intent = new Intent(LoginSuccessActivity.this,MainActivity.class);
+                    startActivity(intent);
 
-        // The new size we want to scale to
-        final int REQUIRED_SIZE = 140;
+                    finish();
+                }
+            });
 
-        // Find the correct scale value. It should be the power of 2.
-        int width_tmp = o.outWidth, height_tmp = o.outHeight;
-        int scale = 1;
-        while (true) {
-            if (width_tmp / 2 < REQUIRED_SIZE
-                    || height_tmp / 2 < REQUIRED_SIZE) {
-                break;
-            }
-            width_tmp /= 2;
-            height_tmp /= 2;
-            scale *= 2;
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
         }
 
-        // Decode with inSampleSize
-        BitmapFactory.Options o2 = new BitmapFactory.Options();
-        o2.inSampleSize = scale;
-        return BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage), null, o2);
+        if (id == R.id.menu_direc) {
 
+            Intent intent = new Intent(LoginSuccessActivity.this,Actividad_fragmento.class);
+            startActivity(intent);
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
+
+
 }
