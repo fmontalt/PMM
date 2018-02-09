@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <PreferenceCategory android:title="Categoría 1">
+                <CheckBoxPreference
+                    android:key="opcion1"
+                    android:title="Preferencia 1"
+                    android:summary="Descripción de la preferencia 1" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="Categoría 2">
+        <ListPreference
+            android:key="opcion2"
+            android:title="Preferencias"
+            android:summary="Cambiar de preferencias"
+            android:dialogTitle="Indicar tipo de preferencia"
+            android:entries="@array/pais"
+            android:entryValues="@array/codigopais" />
+        </PreferenceCategory>
+</PreferenceScreen>

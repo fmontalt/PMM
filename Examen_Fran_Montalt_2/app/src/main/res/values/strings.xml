@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Examen_Fran_Montalt_2</string>
+    <string name="dataError">Frror</string>
+    <string name="alrtDelete">alrtDelete</string>
+    <string name="alrtDeleteEntry">alrtDeleteEntry</string>
+    <string name="title_activity_fragmento">fragmento</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_actividad_fragmento">Actividad_fragmento</string>
+</resources>

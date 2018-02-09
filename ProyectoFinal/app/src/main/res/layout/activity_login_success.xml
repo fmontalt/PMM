@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/logo_play">
 
     <View
         android:id="@+id/title"
@@ -21,36 +22,52 @@
         android:text="Welcome, Yasir Ameen"
         android:gravity="center_horizontal"
         android:id="@+id/txt_success_name"
-        android:layout_marginTop="24dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="YasirAmeen92@gmail.com"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        android:gravity="center_horizontal"
-        android:id="@+id/txt_success_email"
-        android:layout_below="@+id/txt_success_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:id="@+id/radioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+    </RadioGroup>
+
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pedido"
         android:id="@+id/btn_pedido"
         android:textColor="#ffffff"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@+id/txt_success_email"
-        android:layout_marginTop="40dp"
-        android:layout_alignRight="@+id/txt_success_name"
-        android:layout_alignEnd="@+id/txt_success_name"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="72dp" />
+
+    <RadioButton
+        android:id="@+id/domicilio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Envio Domicilio"
+        android:layout_above="@+id/btn_pedido"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="104dp" />
+
+    <RadioButton
+        android:id="@+id/local"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/domicilio"
+        android:layout_marginBottom="31dp"
+        android:text="En local"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Examen_FInal_Bien</string>
+    <string name="dataError">Error</string>
+    <string name="alrtDeleteEntry">alrtDeleteENtry</string>
+    <string name="alrtDelete">Delete</string>
+</resources>

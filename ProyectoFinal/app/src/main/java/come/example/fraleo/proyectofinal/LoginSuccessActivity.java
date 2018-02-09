@@ -26,7 +26,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
 
         TextView txtname = (TextView) findViewById(R.id.txt_success_name);
-        TextView txtemail = (TextView) findViewById(R.id.txt_success_email);
+        //TextView txtemail = (TextView) findViewById(R.id.txt_success_email);
         Button btnpedido = (Button) findViewById(R.id.btn_pedido);
 
 
@@ -35,7 +35,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         String loginName = intent.getStringExtra("fullname");
         String loginEmail = intent.getStringExtra("email");
         txtname.setText("Bienvenido, " +loginName);
-        txtemail.setText(loginEmail);
+        //txtemail.setText(loginEmail);
 
 
     }

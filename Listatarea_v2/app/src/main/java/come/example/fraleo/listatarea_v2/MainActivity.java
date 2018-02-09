@@ -1,7 +1,10 @@
 package come.example.fraleo.listatarea_v2;
 
-
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,6 +15,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.app.Fragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,6 +36,7 @@ import java.util.List;
 
 
 public class MainActivity extends ListActivity{
+
     //acciones
     public static final int NEW_ITEM = 1;
     public static final int EDIT_ITEM = 2;
@@ -43,8 +49,22 @@ public class MainActivity extends ListActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //tratar referencias
+        TextView myAwesomeTextView = (TextView)findViewById(R.id.empty);
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+
+
+
+        //if(pref.getBoolean("opcion2", false)){
+          //  Toast.makeText(getApplicationContext(),pref.getString("opcion2", ""),Toast.LENGTH_SHORT).show();
+         //}
+        myAwesomeTextView.setText(pref.getString("opcion2",""));
         // abrir la base de datos
         mDbHelper = new DataBaseHelper(this);
         try {
@@ -74,6 +94,17 @@ public class MainActivity extends ListActivity{
             e.printStackTrace();
             showMessage(R.string.dataError);
         }
+    }
+    void addFragment(int aux) {
+        // Instanciamos nuevo Fragment
+        Fragment nwFragment = SimpleFragment.newInstance(aux); //to do
+        // Se aÃ±ade el Fragment a la actividad
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragmentShow, nwFragment);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        // aÃ±adimos la transaciÃ³n a la pila
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     private void fillData() {
@@ -148,6 +179,7 @@ public class MainActivity extends ListActivity{
         }
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -156,6 +188,12 @@ public class MainActivity extends ListActivity{
                 Intent intent = new Intent (this,ItemActivity.class);
                 startActivityForResult(intent, NEW_ITEM);
                 return true;
+
+            case R.id.pref:
+
+                Intent intentw = new Intent (this,PantallaOpciones.class);
+                startActivityForResult(intentw,1);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -163,12 +201,20 @@ public class MainActivity extends ListActivity{
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent i = new Intent(this, ItemActivity.class);
+
+
+       // Intent i = new Intent(this, ItemActivity.class);
+
         int rowId = (Integer)v.findViewById(R.id.row_importance).getTag();
-        i.putExtra(DataBaseHelper.SL_ID, rowId);
-        i.putExtra("action", SHOW_ITEM);
-        startActivityForResult(i, SHOW_ITEM);
+        //i.putExtra(DataBaseHelper.SL_ID, rowId);
+        //i.putExtra("action", SHOW_ITEM);
+
+        //startActivityForResult(i, SHOW_ITEM);
+        addFragment(rowId);
+
     }
+
+
 
 
     @Override
