@@ -28,7 +28,10 @@
         <activity
             android:name=".PantallaOpciones"
             android:label="@string/title_activity_pantalla_opciones"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Recibo_juego" />
+        <activity android:name=".factura_personal" />
+        <activity android:name=".acercade"></activity>
     </application>
 
 </manifest>

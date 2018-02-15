@@ -23,20 +23,17 @@ public class RegisterAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
 
-        //To hide AppBar for fullscreen.
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
         openHelper = new SQLiteDBHelper(this);
 
-        //Referencing EditText widgets and Button placed inside in xml layout file
         final EditText _txtfullname = (EditText) findViewById(R.id.txtname_reg);
         final EditText _txtemail = (EditText) findViewById(R.id.txtemail_reg);
         final EditText _txtpass = (EditText) findViewById(R.id.txtpass_reg);
         final EditText _txtmobile = (EditText) findViewById(R.id.txtmobile_reg);
         Button _btnreg = (Button) findViewById(R.id.btn_reg);
 
-        //Register Button Click Event
         _btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,18 +45,17 @@ public class RegisterAccountActivity extends AppCompatActivity {
                 String pass = _txtpass.getText().toString();
                 String mobile = _txtmobile.getText().toString();
 
-                //Calling InsertData Method - Defined below
+
                 InsertData(fullname, email, pass, mobile);
 
-                //Alert dialog after clicking the Register Account
                 final AlertDialog.Builder builder = new AlertDialog.Builder(RegisterAccountActivity.this);
-                builder.setTitle("Information");
-                builder.setMessage("Your Account is Successfully Created.");
-                builder.setPositiveButton("Okey", new DialogInterface.OnClickListener() {
+                builder.setTitle("Información");
+                builder.setMessage("Tu cuenta ha sido creada correctamente.");
+                builder.setPositiveButton("Genial", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        //Finishing the dialog and removing Activity from stack.
+
                         dialogInterface.dismiss();
                         finish();
                     }
@@ -73,7 +69,6 @@ public class RegisterAccountActivity extends AppCompatActivity {
 
     }
 
-    //Inserting Data into database - Like INSERT INTO QUERY.
     public void InsertData(String fullName, String email, String password, String mobile ) {
 
         ContentValues values = new ContentValues();

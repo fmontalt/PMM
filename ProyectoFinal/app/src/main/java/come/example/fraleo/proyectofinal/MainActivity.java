@@ -27,17 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //To hide AppBar for fullscreen.
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
-        //Referencing UserEmail, Password EditText and TextView for SignUp Now
         final EditText _txtemail = (EditText) findViewById(R.id.txtemail);
         final EditText _txtpass = (EditText) findViewById(R.id.txtpass);
         Button _btnlogin = (Button) findViewById(R.id.btnsignin);
         TextView _btnreg = (TextView) findViewById(R.id.btnreg);
 
-        //Opening SQLite Pipeline
         dbhelper = new SQLiteDBHelper(this);
         db = dbhelper.getReadableDatabase();
 
@@ -56,15 +53,16 @@ public class MainActivity extends AppCompatActivity {
                     if(cursor.getCount() > 0) {
 
                         cursor.moveToFirst();
-                        //Retrieving User FullName and Email after successfull login and passing to LoginSucessActivity
                         String _fname = cursor.getString(cursor.getColumnIndex(SQLiteDBHelper.COLUMN_FULLNAME));
                         String _email= cursor.getString(cursor.getColumnIndex(SQLiteDBHelper.COLUMN_EMAIL));
+                        int _id= cursor.getInt(cursor.getColumnIndex(SQLiteDBHelper.COLUMN_ID));
 
                         Toast.makeText(MainActivity.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(MainActivity.this,LoginSuccessActivity.class);
                         intent.putExtra("fullname",_fname);
                         intent.putExtra("email",_email);
+                        intent.putExtra("id",_id);
                         startActivity(intent);
 
                         finish();
